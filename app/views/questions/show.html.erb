@@ -1,0 +1,31 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @question.title %>
+</br>
+  <strong>Description:</strong>
+  <%= @question.description %>
+</p>
+<hr>
+<strong>Latest Answers:</strong>
+<% @answers.each do |answer| %>
+  <% #listing answers with their posted timestamp=.created_at %>
+  <li><%= answer.description %> </br><%= "Posted: #{answer.created_at}" %> </li>
+<% end %>
+
+<hr>
+<%= form_for [@question, @answer] do |f| %>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Destroy', @question, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', questions_path %>

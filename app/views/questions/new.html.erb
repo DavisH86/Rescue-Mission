@@ -1,0 +1,19 @@
+<h1>New Question</h1>
+
+<% #you can <%= render 'form' > so it can be the same as edit with form%>
+
+<%= form_for(@question) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+</br>
+  <div class="field">
+    <%= f.label :description %><br/>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
